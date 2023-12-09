@@ -97,6 +97,9 @@ Dale click en el icono de lapiz al contacto que quieras editar y cambia los camp
 
 Dale click en el icono de basura al contacto que desees eliminar
 
+## Estructura del proyecto
+
+```plaintext
 CRUD
 |-- client
 |   |-- .vscode
@@ -128,7 +131,7 @@ CRUD
 |   |-- server.js
 |-- imagenes
 |-- README.md
-
+```
 
 ## Tecnologías Utilizadas
 
