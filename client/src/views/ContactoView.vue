@@ -72,22 +72,24 @@ export default {
     getUserIdFromLocalStorage() {
       // Obtiene el userId del localStorage
       this.userId = localStorage.getItem("id");
-      console.log(this.userId);
     },
     getContactos() {
-      axios
-        .get(`http://localhost:3000/api/contactos/${this.userId}`)
-        .then((response) => {
-          this.contactos = response.data;
-        })
-        .catch((error) => {
-          console.error("Error al obtener contactos:", error);
-          Swal.fire({
-            icon: "info",
-            title: "Sin contactos",
-            text: "No tienes ningún contacto agregado.",
+      // Verifica si userId tiene un valor antes de hacer la consulta
+      if (this.userId !== null) {
+        axios
+          .get(`http://localhost:3000/api/contactos/${this.userId}`)
+          .then((response) => {
+            this.contactos = response.data;
+          })
+          .catch((error) => {
+            console.error("Error al obtener contactos:", error);
+            Swal.fire({
+              icon: "info",
+              title: "Sin contactos",
+              text: "No tienes ningún contacto agregado.",
+            });
           });
-        });
+      }
     },
     eliminar(_id, nombre) {
       confirmar(_id, nombre);
