@@ -44,7 +44,7 @@
 
 <script>
 import Swal from 'sweetalert2';
-import { ref } from "vue"; // Asegúrate de importar ref
+import { ref } from "vue"; 
 import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
 export default {
@@ -74,6 +74,7 @@ export default {
     const cerrarSesion = () => {
       // Eliminar el token del localStorage
       localStorage.removeItem("token");
+      localStorage.removeItem("id");
 
       // Limpiar los encabezados de Axios
       delete axios.defaults.headers.common["Authorization"];
